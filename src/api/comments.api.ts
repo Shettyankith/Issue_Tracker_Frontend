@@ -9,10 +9,14 @@ export const addComment = async (
   issueId: number,
   body: string
 ) => {
-  const res = await api.post("/comments", {
-    issue_id: issueId,
-    body,
-  });
-
-  return res.data;
+  try{
+    const res = await api.post(`/comments/${issueId}`, {
+      issue_id: issueId,
+      body,
+    });
+  
+    return res.data;
+  }catch(e){
+    console.log("Error thrown is ",e)
+  }
 };

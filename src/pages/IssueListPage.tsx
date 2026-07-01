@@ -23,7 +23,7 @@ const IssueListPage = () => {
   const loadIssues = async () => {
     try {
       const data = await getIssues();
-
+      console.log(data)
       setIssues(data.issues || data.data || []);
     } catch (err) {
       console.error(err);

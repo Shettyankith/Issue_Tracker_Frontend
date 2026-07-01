@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
+import { toast } from "react-toastify";
 import PageLayout from "../components/layout/PageLayout";
 import IssueForm from "../components/issues/IssueForm";
 
@@ -31,7 +31,7 @@ const EditIssuePage = () => {
       setIssue(res.issue || res.data);
     } catch (err) {
       console.error(err);
-      alert("Unable to load issue.");
+      toast.error("Unable to load issue.");
     } finally {
       setLoading(false);
     }
@@ -43,12 +43,12 @@ const EditIssuePage = () => {
 
       await updateIssue(Number(id), data);
 
-      alert("Issue updated successfully.");
+      toast.success("Issue updated successfully.");
 
       navigate("/issues");
     } catch (err) {
       console.error(err);
-      alert("Failed to update issue.");
+      toast.error("Failed to update issue.");
     } finally {
       setSaving(false);
     }

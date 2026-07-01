@@ -45,7 +45,7 @@ const IssueList = ({ issues, onDelete }: Props) => {
               </td>
 
               <td className="p-4">
-                {issue.assigned_user?.name ?? "-"}
+                {issue.assignee_name ?? "-"}
               </td>
 
               <td className="p-4">

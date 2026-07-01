@@ -13,10 +13,7 @@ export interface User {
   
     assigned_to: number | null;
   
-    assigned_user?: {
-      id: number;
-      name: string;
-    };
+    assignee_name:string;
   
     created_at: string;
   

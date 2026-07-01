@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { toast } from "react-toastify";
 import PageLayout from "../components/layout/PageLayout";
 import IssueForm from "../components/issues/IssueForm";
 
@@ -17,12 +17,12 @@ const CreateIssuePage = () => {
 
       await createIssue(data);
 
-      alert("Issue created successfully.");
+      toast.success("Issue created successfully.");
 
       navigate("/issues");
     } catch (err) {
       console.error(err);
-      alert("Failed to create issue.");
+      toast.error("Failed to create issue.");
     } finally {
       setLoading(false);
     }
